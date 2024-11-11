@@ -11,6 +11,11 @@ jenkins:
       users:
         - id: admin
           password: admin
+
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
 tool:
   git:
     installations:
