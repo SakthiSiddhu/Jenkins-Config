@@ -1,0 +1,93 @@
+jenkins:
+  systemMessage: "Jenkins configured automatically"
+  numExecutors: 2
+  scmCheckoutRetryCount: 3
+  mode: NORMAL
+
+  # Security and user setup
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          password: admin
+
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+tool:
+  git:
+    installations:
+      - name: git
+        home: /usr/bin/git
+
+  maven:
+    installations:
+    - name: "Maven"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.9.9"
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"
+        
+  gradle:
+    installations:
+    - name: "Gradle"
+      properties:
+      - installSource:
+          installers:
+          - gradleInstaller:
+              id: "8.11-rc-1"
+
+  dotNetConfiguration:
+    buildAllowed: true
+    cleanAllowed: true
+    listPackageAllowed: true
+    nuGetDeleteAllowed: true
+    nuGetLocalsAllowed: true
+    nuGetPushAllowed: true
+    packAllowed: true
+    publishAllowed: true
+    restoreAllowed: true
+    telemetryOptOut: true
+    testAllowed: true
+    toolRestoreAllowed: true
+  dotnetsdk:
+    installations:
+    - name: "dotNet"
+      properties:
+      - installSource:
+          installers:
+          - installDotNetSDK:
+              includePreview: true
+              label: "dotNet"
+              release: "9.0.0-rc.2"
+              sdk: "9.0.100-rc.2"
+              url: "https://download.visualstudio.microsoft.com/download/pr/817f5589-0347-4254-b19a-67c30d9ce4f8/3dfe6b98927c4003fc004a1a32132a76/dotnet-sdk-9.0.100-rc.2.24474.11-linux-arm64.tar.gz"
+              version: ".NET 9.0"
+
+  nodejs:
+    installations:
+    - name: "NodeJS"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "23.1.0"
+              npmPackagesRefreshHours: 72
+
+# Credentials configuration
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              id: dockerhub_credentials
+              username: "ratneshpuskar"
+              password: "Premkumar@2"
+              scope: GLOBAL
+              description: "Docker Hub credentials"
