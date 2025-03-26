@@ -91,3 +91,9 @@ credentials:
               password: "Premkumar@2"
               scope: GLOBAL
               description: "Docker Hub credentials"
+          - string:
+              id: pat_token
+              secret: "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"
+              scope: GLOBAL
+              description: "PAT Token"
+
