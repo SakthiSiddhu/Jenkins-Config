@@ -93,7 +93,7 @@ credentials:
               description: "Docker Hub credentials"
           - string:
               id: pat_token
-              secret: "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"
+              secret: "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"
               scope: GLOBAL
               description: "PAT Token"
 
